@@ -1,6 +1,6 @@
 # PytSite Twitter Plugin
 
-[AddsThis](https://addthis.com) functionality for the PytSite.
+[Twitter](https://twitter.com) plugin for [PytSite](https://pytsite.xyz).
 
 ## Installation
 
