@@ -1,5 +1,23 @@
 {
+  "name": "Twitter",
+  "description": {
+    "en": "Twitter support",
+    "ru": "Поддержка Twitter",
+    "uk": "Підримка Twitter"
+  },
+  "url": "https://github.com/pytsite/plugin-twitter",
+  "author": {
+    "name": "Alexander Shepetko",
+    "email": "a@shepetko.com",
+    "url": "https://shepetko.com"
+  },
   "requires": {
-    "packages": ["twython", "requests_oauthlib"]
+    "packages": [
+      "twython",
+      "requests_oauthlib"
+    ],
+    "plugins": [
+      "content_export"
+    ]
   }
 }

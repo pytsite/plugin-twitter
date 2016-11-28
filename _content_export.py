@@ -2,8 +2,8 @@
 """
 from frozendict import frozendict as _frozendict
 from twython import Twython as _Twython, TwythonError as _TwythonError
-from pytsite import content as _content, content_export as _content_export, logger as _logger, widget as _widget, \
-    router as _router, settings as _settings
+from pytsite import content as _content, logger as _logger, widget as _widget, router as _router, settings as _settings
+from plugins import content_export as _content_export
 from ._widget import Auth as _TwitterAuthWidget
 
 __author__ = 'Alexander Shepetko'
