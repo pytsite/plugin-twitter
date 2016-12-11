@@ -5,6 +5,9 @@
 
 ## Changelog
 
+### 0.2.1 (2016-12-11)
+Updated translations.
+
 ### 0.2 (2016-11-28)
 - Added support for `content_export` as plugin.
 - Updated plugin.json.
