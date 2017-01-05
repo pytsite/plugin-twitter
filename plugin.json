@@ -1,8 +1,8 @@
 {
   "description": {
-    "en": "Twitter support",
-    "ru": "Поддержка Twitter",
-    "uk": "Підримка Twitter"
+    "en": "Twitter",
+    "ru": "Twitter",
+    "uk": "Twitter"
   },
   "url": "https://github.com/pytsite/plugin-twitter",
   "author": {
