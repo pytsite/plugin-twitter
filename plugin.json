@@ -1,8 +1,8 @@
 {
   "description": {
-    "en": "Twitter",
-    "ru": "Twitter",
-    "uk": "Twitter"
+    "en": "Twitter API",
+    "ru": "Twitter API",
+    "uk": "Twitter API"
   },
   "url": "https://github.com/pytsite/plugin-twitter",
   "author": {
@@ -12,11 +12,8 @@
   },
   "requires": {
     "packages": [
-      "twython",
       "requests_oauthlib"
     ],
-    "plugins": [
-      "content_export"
-    ]
+    "plugins": []
   }
 }

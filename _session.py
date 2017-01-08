@@ -2,7 +2,8 @@
 """
 from datetime import datetime as _dt
 from requests_oauthlib import OAuth1Session
-from pytsite import router as _router, settings as _settings
+from pytsite import router as _router
+from . import _api, _error
 
 __author__ = 'Alexander Shepetko'
 __email__ = 'a@shepetko.com'
@@ -12,24 +13,19 @@ __license__ = 'MIT'
 class Session:
     """Twitter oAuth Driver.
     """
-    def __init__(self, oauth_token: str, oauth_token_secret: str):
+
+    def __init__(self, oauth_token: str, oauth_token_secret: str, app_key: str = None, app_secret: str = None):
         """Init.
         """
-        self._client_key = _settings.get('twitter.app_key')
-        if not self._client_key:
-            raise RuntimeError("Setting 'twitter.app_key' is not defined.")
-
-        self._client_secret = _settings.get('twitter.app_secret')
-        if not self._client_secret:
-            raise RuntimeError("Setting 'twitter.app_secret' is not defined.")
-
+        self._app_key = app_key or _api.get_app_key()
+        self._app_secret = app_secret or _api.get_app_secret()
         self._oauth_token = oauth_token
         self._oauth_token_secret = oauth_token_secret
 
-    def _init_session(self, callback_uri: str=_router.current_url()):
+    def _init_session(self, callback_uri: str = _router.current_url()):
         if self._get_state()['stage'] == 'new':
             # Need to fetch request token
-            oauth = OAuth1Session(self._client_key, self._client_secret, callback_uri=callback_uri)
+            oauth = OAuth1Session(self._app_key, self._app_secret, callback_uri=callback_uri)
             r_token_resp = oauth.fetch_request_token('https://api.twitter.com/oauth/request_token')
             self._set_state({
                 'stage': 'request_token',
@@ -72,16 +68,16 @@ class Session:
 
         return self
 
-    def get_authorization_url(self, callback_uri: str=_router.current_url()) -> str:
+    def get_authorization_url(self, callback_uri: str = _router.current_url()) -> str:
         """Get authorization URL.
         """
         self._init_session(callback_uri)
 
         state = self._get_state()
         if state['stage'] != 'request_token':
-            raise Exception("Cannot generate authorization URL.")
+            raise _error.SessionError("Cannot generate authorization URL.")
 
-        oauth = OAuth1Session(self._client_key, self._client_secret, state['oauth_token'], state['oauth_token_secret'],
+        oauth = OAuth1Session(self._app_key, self._app_secret, state['oauth_token'], state['oauth_token_secret'],
                               callback_uri=callback_uri)
 
         return oauth.authorization_url('https://api.twitter.com/oauth/authorize')
@@ -93,10 +89,10 @@ class Session:
 
         state = self._get_state()
         if state['stage'] != 'request_token':
-            raise Exception('Session expired')
+            raise _error.SessionError('Session expired')
         self._clear_state()
 
-        session = OAuth1Session(self._client_key, self._client_secret,
+        session = OAuth1Session(self._app_key, self._app_secret,
                                 state['oauth_token'], state['oauth_token_secret'],
                                 verifier=verifier)
 
