@@ -8,7 +8,7 @@ __license__ = 'MIT'
 
 
 class Form(_settings.Form):
-    def _setup_widgets(self):
+    def _on_setup_widgets(self):
         self.add_widget(_widget.input.Text(
             uid='setting_app_key',
             weight=10,
@@ -25,4 +25,4 @@ class Form(_settings.Form):
             help=_lang.t('twitter@app_secret_setup_help'),
         ))
 
-        super()._setup_widgets()
+        super()._on_setup_widgets()

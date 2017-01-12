@@ -57,22 +57,22 @@ class Auth(_widget.Abstract):
 
         wrapper = _widget.Container(self.uid)
 
-        wrapper.add_widget(_widget.input.Hidden(
+        wrapper.append_child(_widget.input.Hidden(
             uid=self.uid + '[oauth_token]',
             value=self.oauth_token,
         ))
 
-        wrapper.add_widget(_widget.input.Hidden(
+        wrapper.append_child(_widget.input.Hidden(
             uid=self.uid + '[oauth_token_secret]',
             value=self.oauth_token_secret,
         ))
 
-        wrapper.add_widget(_widget.input.Hidden(
+        wrapper.append_child(_widget.input.Hidden(
             uid=self.uid + '[user_id]',
             value=self.user_id,
         ))
 
-        wrapper.add_widget(_widget.input.Hidden(
+        wrapper.append_child(_widget.input.Hidden(
             uid=self.uid + '[screen_name]',
             value=self.screen_name,
         ))
@@ -84,7 +84,7 @@ class Auth(_widget.Abstract):
             title = _lang.t('twitter@authorization')
             href = self._session.get_authorization_url(self._callback_uri)
 
-        wrapper.add_widget(_widget.static.HTML(
+        wrapper.append_child(_widget.static.HTML(
             uid=self.uid + '[auth_link]',
             em=_html.A(title, href=href).append(_html.I(cls='fa fa-twitter'))
         ))
