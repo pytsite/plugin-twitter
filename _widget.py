@@ -41,7 +41,7 @@ class Auth(_widget.Abstract):
     def screen_name(self) -> str:
         return self._screen_name
 
-    def get_html_em(self, **kwargs) -> _html.Element:
+    def _get_element(self, **kwargs) -> _html.Element:
         """Render widget.
         :param **kwargs:
         """
@@ -89,4 +89,4 @@ class Auth(_widget.Abstract):
             em=_html.A(title, href=href).append(_html.I(cls='fa fa-twitter'))
         ))
 
-        return self._group_wrap(wrapper.get_html_em())
+        return wrapper.get_element()
