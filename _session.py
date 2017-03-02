@@ -22,7 +22,9 @@ class Session:
         self._oauth_token = oauth_token
         self._oauth_token_secret = oauth_token_secret
 
-    def _init_session(self, callback_uri: str = _router.current_url()):
+    def _init_session(self, callback_uri: str = None):
+        callback_uri = callback_uri or _router.current_url()
+
         if self._get_state()['stage'] == 'new':
             # Need to fetch request token
             oauth = OAuth1Session(self._app_key, self._app_secret, callback_uri=callback_uri)
@@ -68,9 +70,11 @@ class Session:
 
         return self
 
-    def get_authorization_url(self, callback_uri: str = _router.current_url()) -> str:
+    def get_authorization_url(self, callback_uri: str = None) -> str:
         """Get authorization URL.
         """
+        callback_uri = callback_uri or _router.current_url()
+
         self._init_session(callback_uri)
 
         state = self._get_state()
