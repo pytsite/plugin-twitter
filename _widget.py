@@ -86,7 +86,7 @@ class Auth(_widget.Abstract):
 
         wrapper.append_child(_widget.static.HTML(
             uid=self.uid + '[auth_link]',
-            em=_html.A(title, href=href).append(_html.I(cls='fa fa-twitter'))
+            em=_html.A(title, href=href).append(_html.I(css='fa fa-twitter'))
         ))
 
         return wrapper.get_element()
