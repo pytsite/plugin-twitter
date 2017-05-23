@@ -4,6 +4,10 @@
 ## Changelog
 
 
+### 0.3.6 (2017-05-23)
+Removed unnecessary assetman registration. 
+
+
 ### 0.3.5 (2017-03-30)
 Fixed notifications. 
 
