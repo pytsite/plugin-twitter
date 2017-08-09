@@ -84,9 +84,11 @@ class Auth(_widget.Abstract):
             title = _lang.t('twitter@authorization')
             href = self._session.get_authorization_url(self._callback_uri)
 
+        a = _html.A(title, href=href)
+        a.append(_html.I(css='fa fa-twitter'))
         wrapper.append_child(_widget.static.HTML(
             uid=self.uid + '[auth_link]',
-            em=_html.A(title, href=href).append(_html.I(css='fa fa-twitter'))
+            em=a,
         ))
 
         return wrapper.get_element()

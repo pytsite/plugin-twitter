@@ -4,8 +4,12 @@
 ## Changelog
 
 
+### 0.3.7 (2017-08-09)
+Fixed HTML structure building in `widget.Auth`.
+
+
 ### 0.3.6 (2017-05-23)
-Removed unnecessary assetman registration. 
+Removed unnecessary assetman registration.
 
 
 ### 0.3.5 (2017-03-30)
