@@ -1,6 +1,6 @@
 {
-  "name": "plugins.twitter",
-  "version": "0.3.8",
+  "name": "twitter",
+  "version": "1.0",
   "description": {
     "en": "Twitter API",
     "ru": "Twitter API",
@@ -16,6 +16,12 @@
     "packages": [
       "requests_oauthlib"
     ],
-    "plugins": []
+    "plugins": [
+      "auth",
+      "font_awesome",
+      "permissions",
+      "settings",
+      "widget"
+    ]
   }
 }

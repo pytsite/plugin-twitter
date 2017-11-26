@@ -1,6 +1,7 @@
 """PytSite Twitter Plugin Settings Form.
 """
-from pytsite import widget as _widget, lang as _lang, settings as _settings
+from pytsite import lang as _lang
+from plugins import widget as _widget, settings as _settings
 
 __author__ = 'Alexander Shepetko'
 __email__ = 'a@shepetko.com'

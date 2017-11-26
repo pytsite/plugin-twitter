@@ -1,6 +1,7 @@
 """PytSite Twitter Plugin Auth Widget.
 """
-from pytsite import widget as _widget, html as _html, lang as _lang, router as _router
+from pytsite import html as _html, lang as _lang, router as _router
+from plugins import widget as _widget
 from ._session import Session as TwitterSession
 
 __author__ = 'Alexander Shepetko'
@@ -23,7 +24,7 @@ class Auth(_widget.Abstract):
         self._css += ' widget-twitter-oauth'
 
         self._session = TwitterSession(self.oauth_token, self.oauth_token_secret)
-        """:type: pytsite.twitter._oauth.Driver"""
+        """:type: plugins.twitter._oauth.Driver"""
 
     @property
     def oauth_token(self) -> str:

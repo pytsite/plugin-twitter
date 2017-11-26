@@ -1,6 +1,7 @@
 """PytSite Twitter Plugin Event Handlers
 """
-from pytsite import auth as _auth, lang as _lang, settings as _settings, router as _router
+from pytsite import lang as _lang, router as _router
+from plugins import settings as _settings, auth as _auth
 
 __author__ = 'Alexander Shepetko'
 __email__ = 'a@shepetko.com'
