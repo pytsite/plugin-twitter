@@ -4,17 +4,14 @@ __author__ = 'Alexander Shepetko'
 __email__ = 'a@shepetko.com'
 __license__ = 'MIT'
 
-from pytsite import plugman as _plugman
-
-if _plugman.is_installed(__name__):
-    # Public API
-    from ._api import get_app_key, get_app_secret
-    from . import _error as error, _session as session, _widget as widget
+# Public API
+from ._api import get_app_key, get_app_secret
+from . import _error as error, _session as session, _widget as widget
 
 
-def plugin_load():
+def plugin_load_uwsgi():
     from pytsite import lang, router
-    from plugins import settings, permissions
+    from plugins import settings
     from . import _settings_form, _eh
 
     # Resources
@@ -23,11 +20,8 @@ def plugin_load():
     # Lang globals
     lang.register_global('twitter_admin_settings_url', lambda language, args: settings.form_url('twitter'))
 
-    # Permissions
-    permissions.define_permission('twitter@manage_settings', 'twitter@manage_twitter_settings', 'app')
-
     # Settings
-    settings.define('twitter', _settings_form.Form, 'twitter@twitter', 'fa fa-twitter', 'twitter@manage_settings')
+    settings.define('twitter', _settings_form.Form, 'twitter@twitter', 'fa fa-twitter', 'dev')
 
     # Event handlers
     router.on_dispatch(_eh.router_dispatch)
