@@ -4,6 +4,11 @@
 ## Changelog
 
 
+### 1.4 (2018-03-30)
+
+Support for `widget-1.8`.
+
+
 ### 1.3 (2018-01-27)
 
 Support for `auth-1.8` and `settings-1.3`.

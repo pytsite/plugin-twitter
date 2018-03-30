@@ -42,7 +42,7 @@ class Auth(_widget.Abstract):
     def screen_name(self) -> str:
         return self._screen_name
 
-    def _get_element(self, **kwargs) -> _html.Element:
+    def _get_element(self, **kwargs) -> _widget.Container:
         """Render widget.
         :param **kwargs:
         """
@@ -92,4 +92,4 @@ class Auth(_widget.Abstract):
             em=a,
         ))
 
-        return wrapper.get_element()
+        return wrapper
