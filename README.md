@@ -4,6 +4,11 @@
 ## Changelog
 
 
+### 1.5.1 (2018-07-29)
+
+`plugin.json` fixed.
+
+
 ### 1.5 (2018-07-29)
 
 Support of `widget-2.4`.
