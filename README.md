@@ -4,29 +4,34 @@
 ## Changelog
 
 
+### 1.5 (2018-07-29)
+
+Support of `widget-2.4`.
+
+
 ### 1.4 (2018-03-30)
 
-Support for `widget-1.8`.
+Support of `widget-1.8`.
 
 
 ### 1.3 (2018-01-27)
 
-Support for `auth-1.8` and `settings-1.3`.
+Support of `auth-1.8` and `settings-1.3`.
 
 
 ### 1.2 (2017-12-13)
 
-Support for PytSite-7.0.
+Support of PytSite-7.0.
 
 
 ### 1.1 (2017-12-02)
 
-Support for PytSite-6.1.
+Support of PytSite-6.1.
 
 
 ### 1.0 (2017-11-26)
 
-Support for PytSite-6.0.
+Support of PytSite-6.0.
 
 
 ### 0.3.8 (2017-08-27)
@@ -51,7 +56,7 @@ Fixed notifications.
 
 ### 0.3.4 (2017-03-21)
 
-Support for latest PytSite `widget`'s changes.
+Support of latest PytSite `widget`'s changes.
 
 
 ### 0.3.3 (2017-03-02)
@@ -61,12 +66,12 @@ Fixed session methods default parameters.
 
 ### 0.3.2 (2017-01-21)
 
-Support for latest PytSite `widget`'s changes.
+Support of latest PytSite `widget`'s changes.
 
 
 ### 0.3.1 (2017-01-12)
 
-Support for latest PytSite `form`'s changes.
+Support of latest PytSite `form`'s changes.
 
 
 ### 0.3  (2017-01-08)

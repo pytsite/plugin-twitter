@@ -42,7 +42,7 @@ class Auth(_widget.Abstract):
     def screen_name(self) -> str:
         return self._screen_name
 
-    def _get_element(self, **kwargs) -> _widget.Container:
+    def _get_element(self, **kwargs) -> _html.Element:
         """Render widget.
         :param **kwargs:
         """
@@ -56,27 +56,27 @@ class Auth(_widget.Abstract):
                 self._user_id = token['user_id']
                 self._screen_name = token['screen_name']
 
-        wrapper = _widget.Container(self.uid)
+        wrapper = _html.TagLessElement()
 
-        wrapper.append_child(_widget.input.Hidden(
+        wrapper.append(_widget.input.Hidden(
             uid=self.uid + '[oauth_token]',
             value=self.oauth_token,
-        ))
+        ).renderable())
 
-        wrapper.append_child(_widget.input.Hidden(
+        wrapper.append(_widget.input.Hidden(
             uid=self.uid + '[oauth_token_secret]',
             value=self.oauth_token_secret,
-        ))
+        ).renderable())
 
-        wrapper.append_child(_widget.input.Hidden(
+        wrapper.append(_widget.input.Hidden(
             uid=self.uid + '[user_id]',
             value=self.user_id,
-        ))
+        ).renderable())
 
-        wrapper.append_child(_widget.input.Hidden(
+        wrapper.append(_widget.input.Hidden(
             uid=self.uid + '[screen_name]',
             value=self.screen_name,
-        ))
+        ).renderable())
 
         if self.screen_name:
             title = self.screen_name
@@ -87,9 +87,9 @@ class Auth(_widget.Abstract):
 
         a = _html.A(title, href=href)
         a.append(_html.I(css='fa fa-twitter'))
-        wrapper.append_child(_widget.static.HTML(
+        wrapper.append(_widget.static.HTML(
             uid=self.uid + '[auth_link]',
             em=a,
-        ))
+        ).renderable())
 
         return wrapper
